@@ -8,15 +8,21 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-strategy:
-  matrix:
-    Python35:
-      PYTHON_VERSION: '3.5'
-    Python36:
-      PYTHON_VERSION: '3.6'
-    Python37:
-      PYTHON_VERSION: '3.7'
-  maxParallel: 1
+jobs:
+- job: Python35
+  displayName: 'Python 3.5'
+  steps:
+    - script: echo "Running Python 3.5 job"
+
+- job: Python36
+  displayName: 'Python 3.6'
+  steps:
+    - script: echo "Running Python 3.6 job"
+
+- job: Python37
+  displayName: 'Python 3.7'
+  steps:
+    - script: echo "Running Python 3.7 job"
 
 steps:
 - task: UsePythonVersion@0
