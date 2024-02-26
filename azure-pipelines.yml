@@ -72,10 +72,9 @@ steps:
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Azure for Students(9aeb07c2-b26e-4091-b2ba-18f93cedac7a)'
-    appType: 'webApp'
+    appType: 'webAppLinux'
     WebAppName: 'python-master1'
-    deployToSlotOrASE: true
-    ResourceGroupName: 'practica11'
-    SlotName: 'production'
-    packageForLinux: '/home/vsts/work/1/a'
+    packageForLinux: 'python-master1'
+    RuntimeStack: 'PYTHON|3.11'
+    StartupCommand: 'python manage.py runserver 0.0.0.0:8000'
     
