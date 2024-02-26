@@ -10,8 +10,8 @@ pool:
   vmImage: ubuntu-latest
 strategy:
   matrix:
-    Python37:
-      PYTHON_VERSION: '3.7'
+    Python311:
+      PYTHON_VERSION: '3.11'
   maxParallel: 1
 
 
@@ -74,6 +74,5 @@ steps:
     azureSubscription: 'Azure for Students(9aeb07c2-b26e-4091-b2ba-18f93cedac7a)'
     appType: 'webAppLinux'
     WebAppName: 'python-master1'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     RuntimeStack: 'PYTHON|3.11'
     StartupCommand: 'python manage.py runserver 0.0.0.0:8000'
