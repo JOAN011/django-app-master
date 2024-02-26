@@ -77,4 +77,5 @@ steps:
     deployToSlotOrASE: true
     ResourceGroupName: 'practica11'
     SlotName: 'production'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/***.zip'
+    packageForLinux: '/home/vsts/work/1/a'
+    
