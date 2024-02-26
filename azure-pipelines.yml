@@ -10,13 +10,9 @@ pool:
   vmImage: ubuntu-latest
 strategy:
   matrix:
-    Python35:
-      PYTHON_VERSION: '3.5'
-    Python36:
-      PYTHON_VERSION: '3.6'
     Python37:
       PYTHON_VERSION: '3.7'
-  maxParallel: 3
+  maxParallel: 1
 
 steps:
 - task: UsePythonVersion@0
@@ -56,3 +52,17 @@ steps:
     testResultsFiles: "**/TEST-*.xml"
     testRunTitle: 'Python $(PYTHON_VERSION)'
   condition: succeededOrFailed()
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  condition: succeededORFailed()
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  condition: succeededORFailed()
