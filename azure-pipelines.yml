@@ -74,7 +74,7 @@ steps:
     azureSubscription: 'Azure for Students(9aeb07c2-b26e-4091-b2ba-18f93cedac7a)'
     appType: 'webAppLinux'
     WebAppName: 'python-master1'
-    packageForLinux: 'python-master1'
+    packageForLinux: '/home/vsts/work/1/a/python-master1'
     RuntimeStack: 'PYTHON|3.11'
     StartupCommand: 'python manage.py runserver 0.0.0.0:8000'
     
