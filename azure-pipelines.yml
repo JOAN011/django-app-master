@@ -14,6 +14,7 @@ strategy:
       PYTHON_VERSION: '3.7'
   maxParallel: 1
 
+
 steps:
 - task: UsePythonVersion@0
   inputs:
@@ -66,3 +67,13 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
   condition: succeededORFailed()
+  
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure for Students(9aeb07c2-b26e-4091-b2ba-18f93cedac7a)'
+    appType: 'webAppLinux'
+    WebAppName: 'python-master1'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'PYTHON|3.11'
+    StartupCommand: 'python manage.py runserver 0.0.0.0:8000'
