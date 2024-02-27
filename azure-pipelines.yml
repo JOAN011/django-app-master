@@ -76,5 +76,5 @@ steps:
     WebAppName: 'python-master1'
     packageForLinux: '/home/vsts/work/1/a'
     RuntimeStack: 'PYTHON|3.11'
-    StartupCommand: 'sudo apt install python3-pip python3-django python manage.py runserver 0.0.0.0:8000'
+    StartupCommand: 'sudo apt install python3-pip python3-django python manage.py runserver 7638:8000'
     
