@@ -29,7 +29,7 @@ steps:
       """Search all subdirectories for `manage.py`."""
       from glob import iglob
       from os import path
-      # Python >= 3.5
+      # Python >= 3.11
       manage_py = next(iglob(path.join('**', 'manage.py'), recursive=True), None)
       if not manage_py:
           raise SystemExit('Could not find a Django project')
@@ -76,5 +76,5 @@ steps:
     WebAppName: 'python-master1'
     packageForLinux: '/home/vsts/work/1/a'
     RuntimeStack: 'PYTHON|3.11'
-    StartupCommand: 'python manage.py runserver 0.0.0.0:8000'
+    StartupCommand: 'sudo apt install python3-pip python3-django python manage.py runserver 0.0.0.0:8000'
     
